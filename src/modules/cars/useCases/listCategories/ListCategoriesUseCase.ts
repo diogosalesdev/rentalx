@@ -1,11 +1,11 @@
 import { ICategoriesRepositoryDTO } from "../../dtos/ICategoriesRepositoryDTO";
-import { Category } from "../../model/Category";
+import { Category } from "../../entities/Category";
 
 class ListCategoriesUseCase {
   constructor(private categoriesRepository: ICategoriesRepositoryDTO) {}
 
-  execute(): Category[] {
-    const categories = this.categoriesRepository.list();
+  async execute(): Promise<Category[]> {
+    const categories = await this.categoriesRepository.list();
 
     return categories;
   }

@@ -3,4 +3,4 @@ interface ICreateSpecificationDTO {
   description: string;
 }
 
-export { ICreateSpecificationDTO }
+export { ICreateSpecificationDTO };

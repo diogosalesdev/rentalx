@@ -1,7 +1,6 @@
 import { ICreateSpecificationDTO } from "../dtos/ICreateSpecificationDTO";
 import { ISpecificationRepository } from "../dtos/ISpecificationRepository";
-import { Specification } from "../model/Specification";
-
+import { Specification } from "../entities/Specification";
 
 class SpecificationsRepository implements ISpecificationRepository {
   private specifications: Specification[];
@@ -9,25 +8,25 @@ class SpecificationsRepository implements ISpecificationRepository {
   constructor() {
     this.specifications = [];
   }
-  
+
   create({ name, description }: ICreateSpecificationDTO): void {
     const specification = new Specification();
-    
+
     Object.assign(specification, {
       name,
       description,
       create_at: new Date(),
-    })
-    
+    });
+
     this.specifications.push(specification);
   }
-  
+
   findByName(name: string): Specification {
     const specification = this.specifications.find(
-      (specification) => specification.name === name
+      specification => specification.name === name,
     );
     return specification;
   }
 }
 
-export { SpecificationsRepository }
+export { SpecificationsRepository };
