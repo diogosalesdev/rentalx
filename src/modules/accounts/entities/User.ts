@@ -11,11 +11,15 @@ class User {
 
   @Column()
   username: string;
+
+  @Column()
   email: string;
 
   @Column()
   password: string;
-  drive_license: string;
+
+  @Column()
+  driver_license: string;
 
   @Column()
   isAdmin: boolean;
